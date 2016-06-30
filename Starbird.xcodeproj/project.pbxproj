@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		90293A631D252EBB00BA527D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90293A621D252EBB00BA527D /* main.swift */; };
+		90767D331D258E280050C081 /* Starbird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90767D321D258E280050C081 /* Starbird.swift */; };
+		90767D351D258ED30050C081 /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90767D341D258ED30050C081 /* TaskType.swift */; };
+		90767D371D2591720050C081 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90767D361D2591720050C081 /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,9 @@
 /* Begin PBXFileReference section */
 		90293A561D252CE700BA527D /* Starbird */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Starbird; sourceTree = BUILT_PRODUCTS_DIR; };
 		90293A621D252EBB00BA527D /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		90767D321D258E280050C081 /* Starbird.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Starbird.swift; sourceTree = "<group>"; };
+		90767D341D258ED30050C081 /* TaskType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskType.swift; sourceTree = "<group>"; };
+		90767D361D2591720050C081 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,9 @@
 			isa = PBXGroup;
 			children = (
 				90293A621D252EBB00BA527D /* main.swift */,
+				90767D321D258E280050C081 /* Starbird.swift */,
+				90767D341D258ED30050C081 /* TaskType.swift */,
+				90767D361D2591720050C081 /* Task.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -139,6 +148,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90767D371D2591720050C081 /* Task.swift in Sources */,
+				90767D331D258E280050C081 /* Starbird.swift in Sources */,
+				90767D351D258ED30050C081 /* TaskType.swift in Sources */,
 				90293A631D252EBB00BA527D /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
