@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		90293A5A1D252CE700BA527D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90293A591D252CE700BA527D /* main.swift */; };
+		90293A631D252EBB00BA527D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90293A621D252EBB00BA527D /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,7 @@
 
 /* Begin PBXFileReference section */
 		90293A561D252CE700BA527D /* Starbird */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Starbird; sourceTree = BUILT_PRODUCTS_DIR; };
-		90293A591D252CE700BA527D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		90293A621D252EBB00BA527D /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +41,7 @@
 		90293A4D1D252CE700BA527D = {
 			isa = PBXGroup;
 			children = (
-				90293A581D252CE700BA527D /* Starbird */,
+				90293A611D252EBB00BA527D /* Source */,
 				90293A571D252CE700BA527D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,12 +54,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		90293A581D252CE700BA527D /* Starbird */ = {
+		90293A611D252EBB00BA527D /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				90293A591D252CE700BA527D /* main.swift */,
+				90293A621D252EBB00BA527D /* main.swift */,
 			);
-			path = Starbird;
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90293A5A1D252CE700BA527D /* main.swift in Sources */,
+				90293A631D252EBB00BA527D /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +263,7 @@
 				90293A5F1D252CE700BA527D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
