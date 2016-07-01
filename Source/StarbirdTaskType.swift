@@ -1,5 +1,5 @@
 //
-//  TaskType.swift
+//  StarbirdTaskType.swift
 //  Starbird
 //
 //  Created by Michał Tynior on 30/06/16.
@@ -8,13 +8,13 @@
 
 import Foundation
 
-public typealias TaskExecutionBlock = ( ([String: Any]?) -> Void )
+public typealias StarbirdTaskExecutionBlock = ( ([String: Any]?) -> Void )
 
-public protocol TaskType {
+public protocol StarbirdTaskType {
     
     var name: String { get set }
     
-    var executionBlock: TaskExecutionBlock? { get set }
+    var executionBlock: StarbirdTaskExecutionBlock? { get set }
     
     func execute(with parameters: [String: Any]?)
     

@@ -10,17 +10,22 @@ import Foundation
 
 public class Starbird {
 
-    private var _tasks: [String :  TaskType] = [:]
+    private var _tasks: [String :  StarbirdTaskType] = [:]
     
-    public func task(name: String, executionBlock: TaskExecutionBlock) {
-        let task = Task(name: name, executionBlock: executionBlock)
+    public func task(name: String, executionBlock: StarbirdTaskExecutionBlock) {
+        let task = StarbirdTask(name: name, executionBlock: executionBlock)
         
-        addTask(task)
+        addStarbirdTask(task)
+    }
+    
+    
+    public func task(name: String, tasks: [String]) {
+        
     }
     
     public func execute(taskName: String, parameters: [String : Any]? = nil) {
         guard let task = _tasks[taskName] else {
-            print("[Error] Task with `\(taskName)` is not defined")
+            print("[Error] StarbirdTask with `\(taskName)` is not defined")
             return
         }
         
@@ -33,15 +38,15 @@ public class Starbird {
 
 extension Starbird {
     
-    private func addTask(_ task: TaskType) {
+    private func addStarbirdTask(_ task: StarbirdTaskType) {
         
         guard !task.name.isEmpty else {
-            print("[Error] Task name is not empty!")
+            print("[Error] StarbirdTask name is not empty!")
             return
         }
         
         guard _tasks[task.name] == nil else {
-            print("[Error] Task with `\(task.name)` name is already defined!")
+            print("[Error] StarbirdTask with `\(task.name)` name is already defined!")
             return
         }
         

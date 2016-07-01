@@ -1,5 +1,5 @@
 //
-//  Task.swift
+//  StarbirdTask.swift
 //  Starbird
 //
 //  Created by Michał Tynior on 30/06/16.
@@ -8,13 +8,13 @@
 
 import Foundation
 
-public class Task: TaskType {
+public class StarbirdTask: StarbirdTaskType {
     
     public var name: String = ""
     
-    public var executionBlock: TaskExecutionBlock?
+    public var executionBlock: StarbirdTaskExecutionBlock?
     
-    public init(name: String, executionBlock: TaskExecutionBlock?) {
+    public init(name: String, executionBlock: StarbirdTaskExecutionBlock?) {
         self.name = name
         self.executionBlock = executionBlock
     }
