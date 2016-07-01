@@ -8,26 +8,46 @@
 
 import Foundation
 
+print("Hello from Starbird")
 
-let task1 = BlockTask() {
+let starbird = Starbird()
+
+starbird.addTask(named: "task1") { _ in
     print("Executing task 1")
-    return TaskResult()
 }
 
-let task2 = BlockTask() {
+starbird.addTask(named: "task2") { _ in
     print("Executing task 2")
-    return nil
 }
 
-let task3 = BlockTask() {
-    print("Executing task 3")
-    return nil
-}
+// execute
 
+starbird.startTask(named: "task1")
 
-task1.continue(with: task2)
-task2.continue(with: task3)
-task1.execute()
+starbird.startTask(named: "task2", beforeExecute: { _ in
+    print("Task 2 haven't started yet")
+})
 
+starbird.startTask(named: "task1", beforeExecute: ["task2"] )
 
-print("Executing main thread")
+starbird.startTask(named: "task2", afterExecute: { _ in
+    print("Task 2  completed")
+})
+
+starbird.startTask(named: "task1", afterExecute: ["test2"])
+
+starbird.startTask(named: "task2", beforeExecute: { _ in
+    
+}, afterExecute: { _ in
+    
+})
+
+starbird.startTask(named: "task1", beforeExecute:  ["task2"], afterExecute: ["task2"])
+
+starbird.startTask(named: "task1", beforeExecute: { _ in
+    
+}, afterExecute: ["task2"])
+
+starbird.startTask(named: "task1", beforeExecute:  ["task2"], afterExecute: { _ in
+        
+})

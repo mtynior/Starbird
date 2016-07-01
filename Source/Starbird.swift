@@ -10,47 +10,32 @@ import Foundation
 
 public class Starbird {
 
-    private var _tasks: [String :  StarbirdTaskType] = [:]
-    
-    public func task(name: String, executionBlock: StarbirdTaskExecutionBlock) {
-        let task = StarbirdTask(name: name, executionBlock: executionBlock)
-        
-        addStarbirdTask(task)
-    }
-    
-    
-    public func task(name: String, tasks: [String]) {
+    public func addTask(named name: String, execute: StarbirdTaskExecutionBlock) {
         
     }
-    
-    public func execute(taskName: String, parameters: [String : Any]? = nil) {
-        guard let task = _tasks[taskName] else {
-            print("[Error] StarbirdTask with `\(taskName)` is not defined")
-            return
-        }
-        
-        task.execute(with: parameters)
-    }
-    
+
 }
 
-// MARK: - Helpers
+// Mark: - Start task
 
 extension Starbird {
     
-    private func addStarbirdTask(_ task: StarbirdTaskType) {
-        
-        guard !task.name.isEmpty else {
-            print("[Error] StarbirdTask name is not empty!")
-            return
-        }
-        
-        guard _tasks[task.name] == nil else {
-            print("[Error] StarbirdTask with `\(task.name)` name is already defined!")
-            return
-        }
-        
-        _tasks[task.name] = task
-    }
+    public func startTask(named name: String) { }
+    
+    public func startTask(named name: String, beforeExecute preTask: ( (Void) -> Void )? ) { }
+    
+    public func startTask(named name: String, beforeExecute preTasks: [String]) {}
+
+    public func startTask(named name: String, afterExecute postTask: ( (Void) -> Void )? ) { }
+    
+    public func startTask(named name: String, afterExecute postTasks: [String]) {}
+
+    public func startTask(named name: String, beforeExecute preTasks: ( (Void) -> Void )?, afterExecute postTask: ( (Void) -> Void )?) {}
+   
+    public func startTask(named name: String, beforeExecute preTasks: [String], afterExecute postTasks: [String] ) {}
+
+    public func startTask(named name: String, beforeExecute preTasks: [String], afterExecute task: ( (Void) -> Void )?) {}
+
+    public func startTask(named name: String, beforeExecute preTasks: ( (Void) -> Void )?, afterExecute postTasks: [String]) {}
     
 }
