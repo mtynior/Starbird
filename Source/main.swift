@@ -8,16 +8,26 @@
 
 import Foundation
 
-let starbird = Starbird()
 
-starbird.task(name: "task1") { _ in
-    print("Executing Task 1")
+let task1 = BlockTask() {
+    print("Executing task 1")
+    return TaskResult()
 }
 
-starbird.task(name: "task2") { params in
-    print("Executing Task 2 with parameters: \(params)")
+let task2 = BlockTask() {
+    print("Executing task 2")
+    return nil
 }
 
-starbird.execute(taskName: "task1")
+let task3 = BlockTask() {
+    print("Executing task 3")
+    return nil
+}
 
-starbird.execute(taskName: "task2", parameters: ["param1" : 1, "param2" : "param2" ])
+
+task1.continue(with: task2)
+task2.continue(with: task3)
+task1.execute()
+
+
+print("Executing main thread")

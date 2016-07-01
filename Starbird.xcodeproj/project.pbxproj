@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		901FD0521D26487100B5FBBF /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901FD0511D26487100B5FBBF /* Task.swift */; };
+		901FD0541D264ACD00B5FBBF /* TaskResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901FD0531D264ACD00B5FBBF /* TaskResult.swift */; };
+		901FD0561D264D4800B5FBBF /* TaskScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901FD0551D264D4800B5FBBF /* TaskScheduler.swift */; };
 		90293A631D252EBB00BA527D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90293A621D252EBB00BA527D /* main.swift */; };
+		9058FA531D266163007DF72D /* BlockTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9058FA521D266163007DF72D /* BlockTask.swift */; };
 		90767D331D258E280050C081 /* Starbird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90767D321D258E280050C081 /* Starbird.swift */; };
 		90767D351D258ED30050C081 /* StarbirdTaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90767D341D258ED30050C081 /* StarbirdTaskType.swift */; };
 		90767D371D2591720050C081 /* StarbirdTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90767D361D2591720050C081 /* StarbirdTask.swift */; };
@@ -26,8 +30,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		901FD0511D26487100B5FBBF /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Task.swift; path = Tasks/Task.swift; sourceTree = "<group>"; };
+		901FD0531D264ACD00B5FBBF /* TaskResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskResult.swift; path = Tasks/TaskResult.swift; sourceTree = "<group>"; };
+		901FD0551D264D4800B5FBBF /* TaskScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskScheduler.swift; path = Tasks/TaskScheduler.swift; sourceTree = "<group>"; };
 		90293A561D252CE700BA527D /* Starbird */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Starbird; sourceTree = BUILT_PRODUCTS_DIR; };
 		90293A621D252EBB00BA527D /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = main.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		9058FA521D266163007DF72D /* BlockTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockTask.swift; path = Tasks/BlockTask.swift; sourceTree = "<group>"; };
 		90767D321D258E280050C081 /* Starbird.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Starbird.swift; sourceTree = "<group>"; };
 		90767D341D258ED30050C081 /* StarbirdTaskType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarbirdTaskType.swift; sourceTree = "<group>"; };
 		90767D361D2591720050C081 /* StarbirdTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarbirdTask.swift; sourceTree = "<group>"; };
@@ -44,6 +52,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		901FD0501D26486000B5FBBF /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				901FD0531D264ACD00B5FBBF /* TaskResult.swift */,
+				901FD0511D26487100B5FBBF /* Task.swift */,
+				9058FA521D266163007DF72D /* BlockTask.swift */,
+				901FD0551D264D4800B5FBBF /* TaskScheduler.swift */,
+			);
+			name = Tasks;
+			sourceTree = "<group>";
+		};
 		90293A4D1D252CE700BA527D = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +82,7 @@
 		90293A611D252EBB00BA527D /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				901FD0501D26486000B5FBBF /* Tasks */,
 				90293A621D252EBB00BA527D /* main.swift */,
 				90767D321D258E280050C081 /* Starbird.swift */,
 				90767D341D258ED30050C081 /* StarbirdTaskType.swift */,
@@ -148,8 +168,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9058FA531D266163007DF72D /* BlockTask.swift in Sources */,
 				90767D371D2591720050C081 /* StarbirdTask.swift in Sources */,
+				901FD0541D264ACD00B5FBBF /* TaskResult.swift in Sources */,
+				901FD0561D264D4800B5FBBF /* TaskScheduler.swift in Sources */,
 				90767D331D258E280050C081 /* Starbird.swift in Sources */,
+				901FD0521D26487100B5FBBF /* Task.swift in Sources */,
 				90767D351D258ED30050C081 /* StarbirdTaskType.swift in Sources */,
 				90293A631D252EBB00BA527D /* main.swift in Sources */,
 			);
