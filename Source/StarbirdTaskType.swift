@@ -8,7 +8,7 @@
 
 import Foundation
 
-public typealias StarbirdTaskExecutionBlock = ( ([String: Any]?) -> Void )
+public typealias StarbirdTaskExecutionBlock = ( (Void) -> Void )
 
 public protocol StarbirdTaskType {
     

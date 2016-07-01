@@ -19,8 +19,8 @@ public class StarbirdTask: StarbirdTaskType {
         self.executionBlock = executionBlock
     }
     
-    public func execute(with parameters: [String: Any]?) {
-        executionBlock?(parameters)
+    public func execute(with parameters: [String: Any]? = nil) {
+        executionBlock?()
     }
     
 }
