@@ -8,8 +8,23 @@
 
 import Foundation
 
-enum StarbirdError: ErrorProtocol {
+enum StarbirdError: ErrorProtocol, CustomStringConvertible {
     
+    case TaskAlreadyDefined(name: String)
     case TaskNotFound(name: String)
+    
+}
+
+
+extension StarbirdError {
+    
+    var description: String {
+        
+        switch self {
+        case .TaskAlreadyDefined(let name): return "Task `\(name)` is already defined"
+        case .TaskNotFound(let name): return "Task `\(name)` is not defined"
+        }
+        
+    }
     
 }

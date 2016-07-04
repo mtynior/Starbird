@@ -15,7 +15,7 @@ public class Starbird {
     public func addTask(named name: String, execute: StarbirdTaskExecutionBlock) {
         
         guard !isTaskDefined(taskName: name) else {
-            print("[Error] Task `\(name)` is alredy defined")
+            UI.showError("Task `\(name)` is alredy defined")
             return
         }
         
@@ -62,10 +62,8 @@ extension Starbird {
             
             extecuteTask(currentTask, preTasks: preTasksList, postTasks: postTasksList)
             
-        } catch StarbirdError.TaskNotFound(let name) {
-            print("[Error] Task `\(name)` is not defined")
         } catch let error {
-            print("[Error] \(error)")
+            UI.showError(error)
         }
 
     }
@@ -90,11 +88,10 @@ extension Starbird {
             
             extecuteTask(currentTask, preTasks: preTasksList, postTasks: postTasksList)
             
-        } catch StarbirdError.TaskNotFound(let name) {
-            print("[Error] Task `\(name)` is not defined")
         } catch let error {
-            print("[Error] \(error)")
+            UI.showError(error)
         }
+
 
     }
 
@@ -112,11 +109,10 @@ extension Starbird {
             
             extecuteTask(currentTask, preTasks: preTasksList, postTasks: postTasksList)
             
-        } catch StarbirdError.TaskNotFound(let name) {
-            print("[Error] Task `\(name)` is not defined")
         } catch let error {
-            print("[Error] \(error)")
+            UI.showError(error)
         }
+
 
     }
 
@@ -133,10 +129,8 @@ extension Starbird {
             
             extecuteTask(currentTask, preTasks: preTasksList, postTasks: postTasksList)
             
-        } catch StarbirdError.TaskNotFound(let name) {
-            print("[Error] Task `\(name)` is not defined")
         } catch let error {
-            print("[Error] \(error)")
+            UI.showError(error)
         }
         
     }

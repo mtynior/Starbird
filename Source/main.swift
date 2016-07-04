@@ -33,7 +33,7 @@ starbird.addTask(named: "task4") { _ in
 
 // execute
 
-//starbird.startTask(named: "task1")
+starbird.startTask(named: "task1")
 
 /*starbird.startTask(named: "task1", beforeExecute: { _ in
     print("Task 1 haven't started yet")
