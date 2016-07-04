@@ -23,4 +23,5 @@ public class BlockTask: Task {
         result = _executionBlock?()
         finish()
     }
+    
 }

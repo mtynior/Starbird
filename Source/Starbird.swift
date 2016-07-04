@@ -92,7 +92,6 @@ extension Starbird {
             UI.showError(error)
         }
 
-
     }
 
     public func startTask(named name: String, beforeExecute preTasks: [String], afterExecute postTaskBlock: StarbirdTaskExecutionBlock) {
@@ -112,7 +111,6 @@ extension Starbird {
         } catch let error {
             UI.showError(error)
         }
-
 
     }
 
