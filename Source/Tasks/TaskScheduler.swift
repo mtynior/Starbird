@@ -13,7 +13,10 @@ public class TaskScheduler {
     private var _queue: OperationQueue = OperationQueue()
     
     var operations: [Operation] = []
-
+    
+    public init() {
+        _queue.isSuspended = true
+    }
     
     public func addTask(_ task: Task) {
         
@@ -21,7 +24,17 @@ public class TaskScheduler {
         
         addSubTask(task)
         
-        _queue.addOperations(operations, waitUntilFinished: true)
+        _queue.addOperations(operations, waitUntilFinished: false)
+    }
+    
+    public func addParallelTasks(_ tasks: [Task]) {
+        _queue.maxConcurrentOperationCount = tasks.count
+        _queue.addOperations(tasks, waitUntilFinished: false)
+    }
+    
+    public func startExecuting() {
+        _queue.isSuspended = false
+        _queue.waitUntilAllOperationsAreFinished()
     }
     
     private func addSubTask(_ task: Task) {

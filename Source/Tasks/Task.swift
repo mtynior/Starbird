@@ -32,6 +32,7 @@ public class Task: Operation {
 
     public func execute(scheduler: TaskScheduler = TaskScheduler()) {
         scheduler.addTask(self)
+        scheduler.startExecuting()
     }
     
     override public func start() {
