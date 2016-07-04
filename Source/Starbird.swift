@@ -47,11 +47,7 @@ extension Starbird {
             var preTasksList: [Task] = []
             
             if let preTaskBlock = preTaskBlock {
-                let preTask = BlockTask() {
-                    preTaskBlock()
-                    return nil
-                }
-                
+                let preTask = spawnTaskFromBlock(preTaskBlock)
                 preTasksList.append(preTask)
             }
             
@@ -59,13 +55,8 @@ extension Starbird {
             
             var postTasksList: [Task] = []
 
-            
             if let postTaskBlock = postTaskBlock {
-                let postTask = BlockTask() {
-                    postTaskBlock()
-                    return nil
-                }
-                
+                let postTask = spawnTaskFromBlock(postTaskBlock)
                 postTasksList.append(postTask)
             }
             
@@ -91,18 +82,13 @@ extension Starbird {
     
         do {
             
-            let preTasksList: [Task] = try preTasks.map({ name in
-                return try spawnTask(named: name)
-            })
+            let preTasksList = try spawnTasks(named: preTasks)
             
             let currentTask = try spawnTask(named: name)
             
-            let postTasksList: [Task] = try postTasks.map({ name in
-                return try spawnTask(named: name)
-            })
+            let postTasksList =  try spawnTasks(named: postTasks)
             
             extecuteTask(currentTask, preTasks: preTasksList, postTasks: postTasksList)
-            
             
         } catch StarbirdError.TaskNotFound(let name) {
             print("[Error] Task `\(name)` is not defined")
@@ -116,16 +102,11 @@ extension Starbird {
     
         do {
             
-            let preTasksList: [Task] = try preTasks.map({ name in
-                return try spawnTask(named: name)
-            })
+            let preTasksList = try spawnTasks(named: preTasks)
             
             let currentTask = try spawnTask(named: name)
             
-            let postTask = BlockTask() {
-                postTaskBlock()
-                return nil
-            }
+            let postTask = spawnTaskFromBlock(postTaskBlock)
             
             let postTasksList: [Task] = [postTask]
             
@@ -142,18 +123,13 @@ extension Starbird {
     public func startTask(named name: String, beforeExecute preTaskBlock: StarbirdTaskExecutionBlock, afterExecute postTasks: [String]) {
     
         do {
-            let preTask = BlockTask() {
-                preTaskBlock()
-                return nil
-            }
+            let preTask = spawnTaskFromBlock(preTaskBlock)
             
             let preTasksList = [preTask]
            
             let currentTask = try spawnTask(named: name)
             
-            let postTasksList: [Task] = try postTasks.map({ name in
-                return try spawnTask(named: name)
-            })
+            let postTasksList = try spawnTasks(named: postTasks)
             
             extecuteTask(currentTask, preTasks: preTasksList, postTasks: postTasksList)
             
@@ -189,13 +165,26 @@ extension Starbird {
         return task
     }
     
+    private func spawnTasks(named names: [String]) throws -> [Task] {
+        return try names.map({ name in return try spawnTask(named: name) })
+    }
+    
+    private func spawnTaskFromBlock(_ executionBlock: StarbirdTaskExecutionBlock) -> Task {
+        let task = BlockTask() {
+            executionBlock()
+            return nil
+        }
+        
+        return task
+    }
+    
     private func extecuteTask(_ currentTask: Task, preTasks: [Task], postTasks: [Task]) {
         
         if preTasks.count > 0 {
             let preTasksScheduler = TaskScheduler()
                 
             preTasksScheduler.addParallelTasks(preTasks)
-            preTasksScheduler.startExecuting()
+            preTasksScheduler.startExecuting(waitUntilAllTaskFinished: true)
         }
         
         currentTask.execute()
@@ -204,7 +193,7 @@ extension Starbird {
             let postTasksScheduler = TaskScheduler()
                 
             postTasksScheduler.addParallelTasks(postTasks)
-            postTasksScheduler.startExecuting()
+            postTasksScheduler.startExecuting(waitUntilAllTaskFinished: true)
         }
         
     }

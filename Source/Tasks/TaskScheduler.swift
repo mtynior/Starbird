@@ -32,9 +32,11 @@ public class TaskScheduler {
         _queue.addOperations(tasks, waitUntilFinished: false)
     }
     
-    public func startExecuting() {
+    public func startExecuting(waitUntilAllTaskFinished: Bool = false) {
         _queue.isSuspended = false
-        _queue.waitUntilAllOperationsAreFinished()
+        if waitUntilAllTaskFinished {
+            _queue.waitUntilAllOperationsAreFinished()
+        }
     }
     
     private func addSubTask(_ task: Task) {
