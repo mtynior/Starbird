@@ -15,6 +15,8 @@
 		90767D331D258E280050C081 /* Starbird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90767D321D258E280050C081 /* Starbird.swift */; };
 		90767D351D258ED30050C081 /* StarbirdTaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90767D341D258ED30050C081 /* StarbirdTaskType.swift */; };
 		90767D371D2591720050C081 /* StarbirdTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90767D361D2591720050C081 /* StarbirdTask.swift */; };
+		90B19C161D2B8FDE003D1A5E /* StarbirdCommandType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B19C151D2B8FDE003D1A5E /* StarbirdCommandType.swift */; };
+		90B19C181D2B92DC003D1A5E /* StarbirdCommandContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B19C171D2B92DC003D1A5E /* StarbirdCommandContext.swift */; };
 		90FA062D1D2A43FF004D5873 /* StarbirdError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FA062C1D2A43FF004D5873 /* StarbirdError.swift */; };
 		90FA062F1D2A7416004D5873 /* UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FA062E1D2A7416004D5873 /* UI.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +43,8 @@
 		90767D321D258E280050C081 /* Starbird.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Starbird.swift; sourceTree = "<group>"; };
 		90767D341D258ED30050C081 /* StarbirdTaskType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarbirdTaskType.swift; sourceTree = "<group>"; };
 		90767D361D2591720050C081 /* StarbirdTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarbirdTask.swift; sourceTree = "<group>"; };
+		90B19C151D2B8FDE003D1A5E /* StarbirdCommandType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarbirdCommandType.swift; sourceTree = "<group>"; };
+		90B19C171D2B92DC003D1A5E /* StarbirdCommandContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarbirdCommandContext.swift; sourceTree = "<group>"; };
 		90FA062C1D2A43FF004D5873 /* StarbirdError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarbirdError.swift; sourceTree = "<group>"; };
 		90FA062E1D2A7416004D5873 /* UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +97,8 @@
 				90767D361D2591720050C081 /* StarbirdTask.swift */,
 				90FA062C1D2A43FF004D5873 /* StarbirdError.swift */,
 				90FA062E1D2A7416004D5873 /* UI.swift */,
+				90B19C151D2B8FDE003D1A5E /* StarbirdCommandType.swift */,
+				90B19C171D2B92DC003D1A5E /* StarbirdCommandContext.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -178,11 +184,13 @@
 				90767D371D2591720050C081 /* StarbirdTask.swift in Sources */,
 				90FA062D1D2A43FF004D5873 /* StarbirdError.swift in Sources */,
 				90FA062F1D2A7416004D5873 /* UI.swift in Sources */,
+				90B19C161D2B8FDE003D1A5E /* StarbirdCommandType.swift in Sources */,
 				901FD0541D264ACD00B5FBBF /* TaskResult.swift in Sources */,
 				901FD0561D264D4800B5FBBF /* TaskScheduler.swift in Sources */,
 				90767D331D258E280050C081 /* Starbird.swift in Sources */,
 				901FD0521D26487100B5FBBF /* Task.swift in Sources */,
 				90767D351D258ED30050C081 /* StarbirdTaskType.swift in Sources */,
+				90B19C181D2B92DC003D1A5E /* StarbirdCommandContext.swift in Sources */,
 				90293A631D252EBB00BA527D /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
