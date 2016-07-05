@@ -18,9 +18,10 @@ public class Pipeline {
         return pipe(command)
     }
     
+    @discardableResult
     public func pipe(_ command: StarbirdCommandType) -> Pipeline {
         
-        if let lastCommand = _commands.last {
+        if var lastCommand = _commands.last {
             lastCommand.continueWith(command)
         }
         
@@ -32,7 +33,6 @@ public class Pipeline {
     public func run() {
         
         _commands.first?.execute(context: StarbirdCommandContext())
-        
     }
     
 }
