@@ -10,7 +10,7 @@ import Foundation
 
 public class Pipeline {
     
-    private var _commands: [StarbirdCommandType] = []
+    public var commands: [StarbirdCommandType] = []
     
     public init() { }
     
@@ -18,21 +18,36 @@ public class Pipeline {
         return pipe(command)
     }
     
-    @discardableResult
-    public func pipe(_ command: StarbirdCommandType) -> Pipeline {
+    @discardableResult public func pipe(_ command: StarbirdCommandType) -> Pipeline {
         
-        if var lastCommand = _commands.last {
+        if var lastCommand = commands.last {
             lastCommand.continueWith(command)
         }
         
-        _commands.append(command)
+        commands.append(command)
+        
+        return self
+    }
+    
+    @discardableResult public func pipe(_ commands: [StarbirdCommandType]) -> Pipeline {
+        
+        for command in commands {
+            pipe(command)
+        }
+        
+        return self
+    }
+    
+    @discardableResult public func pipe(_ pipeline: Pipeline) -> Pipeline {
+        
+        pipe(pipeline.commands)
         
         return self
     }
     
     public func run() {
         
-        _commands.first?.execute(context: StarbirdCommandContext())
+        commands.first?.execute(context: StarbirdCommandContext())
     }
     
 }
