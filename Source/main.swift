@@ -14,9 +14,9 @@ class Command1: StarbirdCommandType {
     
     var nextCommand: StarbirdCommandType?
     
-    func execute(context: StarbirdCommandContext? = nil) {
+    func execute(context: inout StarbirdCommandContext) {
         print("Command 1")
-        executeNext(context: context)
+        executeNext(context: &context)
     }
     
 }
@@ -25,9 +25,9 @@ class Command2: StarbirdCommandType {
     
     var nextCommand: StarbirdCommandType?
     
-    func execute(context: StarbirdCommandContext? = nil) {
+    func execute(context: inout StarbirdCommandContext) {
         print("Command 2")
-        executeNext(context: context)
+        executeNext(context: &context)
     }
     
 }
@@ -36,9 +36,9 @@ class Command3: StarbirdCommandType {
     
     var nextCommand: StarbirdCommandType?
     
-    func execute(context: StarbirdCommandContext? = nil) {
+    func execute(context: inout  StarbirdCommandContext) {
         print("Command 3")
-        executeNext(context: context)
+        executeNext(context: &context)
     }
     
 }
@@ -47,9 +47,9 @@ class Command4: StarbirdCommandType {
     
     var nextCommand: StarbirdCommandType?
     
-    func execute(context: StarbirdCommandContext? = nil) {
+    func execute(context: inout StarbirdCommandContext) {
         print("Command 4")
-        executeNext(context: context)
+        executeNext(context: &context)
     }
     
 }
@@ -58,9 +58,9 @@ class Command5: StarbirdCommandType {
     
     var nextCommand: StarbirdCommandType?
     
-    func execute(context: StarbirdCommandContext? = nil) {
+    func execute(context: inout StarbirdCommandContext) {
         print("Command 5")
-        executeNext(context: context)
+        executeNext(context: &context)
     }
     
 }
@@ -69,17 +69,17 @@ class Command5: StarbirdCommandType {
 let starbird = Starbird()
  
 starbird.addTask(named: "task1") { pipeline in
-    return pipeline.pipe(Command1())
+    return pipeline.addPipe(Command1())
 }
  
 starbird.addTask(named: "task2") { pipeline in
-    return pipeline.pipe(Command2())
-                .pipe(Command4())
-                .pipe(Command5())
+    return pipeline.addPipe(Command2())
+                .addPipe(Command4())
+                .addPipe(Command5())
 }
 
 starbird.addTask(named: "task3") { pipeline in
-    return pipeline.pipe(Command3())
+    return pipeline.addPipe(Command3())
 }
 
 
@@ -88,17 +88,17 @@ starbird.addTask(named: "task3") { pipeline in
 starbird.startTask(named: "task2")
 
 /*starbird.startTask(named: "task1", beforeExecute: { pipeline in
-    return pipeline.pipe(Command2())
+    return pipeline.addPipe(Command2())
 })*/
 
 /*starbird.startTask(named: "task1", afterExecute: { pipeline in
-    return pipeline.pipe(Command2())
+    return pipeline.addPipe(Command2())
 })*/
 
 /*starbird.startTask(named: "task2", beforeExecute: { pipeline in
-    return pipeline.pipe(Command1())
+    return pipeline.addPipe(Command1())
 }, afterExecute: { pipeline in
-    return pipeline.pipe(Command3())
+    return pipeline.addPipe(Command3())
 })*/
 
 //starbird.startTask(named: "task1", beforeExecute: ["task2", "task3"] )

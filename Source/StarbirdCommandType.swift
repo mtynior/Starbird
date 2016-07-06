@@ -12,9 +12,9 @@ public protocol StarbirdCommandType {
     
     var nextCommand: StarbirdCommandType? { get set }
     
-    func execute(context: StarbirdCommandContext?)
+    func execute(context: inout StarbirdCommandContext)
     
-    func executeNext(context: StarbirdCommandContext?)
+    func executeNext(context: inout StarbirdCommandContext)
     
     mutating func continueWith(_ command: StarbirdCommandType)
     
@@ -22,17 +22,16 @@ public protocol StarbirdCommandType {
 
 extension StarbirdCommandType {
     
-    func execute(context: StarbirdCommandContext? = nil) {
+    func execute(context: inout StarbirdCommandContext) {
         if let nextCommand = nextCommand {
-            nextCommand.execute(context: context)
+            nextCommand.execute(context: &context)
         }
     }
     
-    func executeNext(context: StarbirdCommandContext?) {
+    func executeNext(context: inout StarbirdCommandContext) {
         if let nextCommand = nextCommand {
-            nextCommand.execute(context: context)
+            nextCommand.execute(context: &context)
         }
-
     }
 
     mutating func continueWith(_ command: StarbirdCommandType) {

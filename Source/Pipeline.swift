@@ -15,10 +15,10 @@ public class Pipeline {
     public init() { }
     
     public func start(with command: StarbirdCommandType) -> Pipeline {
-        return pipe(command)
+        return addPipe(command)
     }
     
-    @discardableResult public func pipe(_ command: StarbirdCommandType) -> Pipeline {
+    @discardableResult public func addPipe(_ command: StarbirdCommandType) -> Pipeline {
         
         if var lastCommand = commands.last {
             lastCommand.continueWith(command)
@@ -29,25 +29,19 @@ public class Pipeline {
         return self
     }
     
-    @discardableResult public func pipe(_ commands: [StarbirdCommandType]) -> Pipeline {
+    @discardableResult public func addPipes(_ commands: [StarbirdCommandType]) -> Pipeline {
         
         for command in commands {
-            pipe(command)
+            addPipe(command)
         }
         
         return self
     }
     
-    @discardableResult public func pipe(_ pipeline: Pipeline) -> Pipeline {
-        
-        pipe(pipeline.commands)
-        
-        return self
-    }
-    
     public func run() {
+        var context = StarbirdCommandContext()
         
-        commands.first?.execute(context: StarbirdCommandContext())
+        commands.first?.execute(context: &context)
     }
     
 }
