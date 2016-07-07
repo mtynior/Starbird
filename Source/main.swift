@@ -16,7 +16,7 @@ class Command1: StarbirdCommandType {
     
     func execute(context: inout StarbirdCommandContext) {
         print("Command 1")
-        executeNext(context: &context)
+        executeNextCommand(context: &context)
     }
     
 }
@@ -27,7 +27,7 @@ class Command2: StarbirdCommandType {
     
     func execute(context: inout StarbirdCommandContext) {
         print("Command 2")
-        executeNext(context: &context)
+        executeNextCommand(context: &context)
     }
     
 }
@@ -38,7 +38,7 @@ class Command3: StarbirdCommandType {
     
     func execute(context: inout  StarbirdCommandContext) {
         print("Command 3")
-        executeNext(context: &context)
+        executeNextCommand(context: &context)
     }
     
 }
@@ -49,7 +49,7 @@ class Command4: StarbirdCommandType {
     
     func execute(context: inout StarbirdCommandContext) {
         print("Command 4")
-        executeNext(context: &context)
+        executeNextCommand(context: &context)
     }
     
 }
@@ -60,7 +60,7 @@ class Command5: StarbirdCommandType {
     
     func execute(context: inout StarbirdCommandContext) {
         print("Command 5")
-        executeNext(context: &context)
+        executeNextCommand(context: &context)
     }
     
 }
