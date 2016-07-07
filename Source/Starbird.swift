@@ -42,8 +42,40 @@ extension Starbird {
         startTask(named: name, beforeExecute: nil, afterExecute: postTaskBlock)
     }
     
-    public func startTask(named name: String, beforeExecute preTaskBlock: StarbirdTaskExecutionBlock?, afterExecute postTaskBlock: StarbirdTaskExecutionBlock?) {
+    public func startTask(named name: String, beforeExecute preTaskName: String) {
+        guard isTaskDefined(taskName: preTaskName) else {
+            UI.showError("Task `\(name)` is not defined")
+            return
+        }
         
+        startTask(named: name, beforeExecute: _tasks[preTaskName], afterExecute: nil)
+    }
+    
+    public func startTask(named name: String, afterExecute postTaskName: String) {
+        guard isTaskDefined(taskName: postTaskName) else {
+            UI.showError("Task `\(name)` is not defined")
+            return
+        }
+        
+        startTask(named: name, beforeExecute: nil, afterExecute: _tasks[postTaskName])
+    }
+    
+    public func startTask(named name: String, beforeExecute preTaskName: String, afterExecute postTaskName: String) {
+        guard isTaskDefined(taskName: preTaskName) else {
+            UI.showError("Task `\(name)` is not defined")
+            return
+        }
+        
+        guard isTaskDefined(taskName: postTaskName) else {
+            UI.showError("Task `\(name)` is not defined")
+            return
+        }
+        
+        startTask(named: name, beforeExecute: _tasks[preTaskName], afterExecute: _tasks[postTaskName])
+    }
+    
+    
+    public func startTask(named name: String, beforeExecute preTaskBlock: StarbirdTaskExecutionBlock?, afterExecute postTaskBlock: StarbirdTaskExecutionBlock?) {
         guard isTaskDefined(taskName: name) else {
             UI.showError("Task `\(name)` is not defined")
             return

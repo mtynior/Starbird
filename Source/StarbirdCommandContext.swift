@@ -10,6 +10,8 @@ import Foundation
 
 public struct StarbirdCommandContext {
     
+    var result: Any?
     
+    var error: ErrorProtocol?
     
 }
